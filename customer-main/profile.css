@@ -1,0 +1,231 @@
+/* Reset and basics */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+body, html {
+    height: 100%;
+    background: #cde6e9;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 100%;
+    background: #2c3e50;
+    color: #ecf0f1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 15px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.sidebar .logo {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.sidebar .logo-icon {
+    font-size: 36px;
+    font-weight: bold;
+    background: #2980b9;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    margin: 0 auto 10px;
+    user-select: none;
+}
+
+.sidebar h2 {
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #f0e21c;
+}
+
+.nav-menu {
+    flex-grow: 1;
+}
+
+.nav-menu .nav-item {
+    display: block;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    color: #bdc3c7;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-menu .nav-item:hover {
+    background: #2980b9;
+    color: white;
+}
+
+.nav-menu .nav-item.active {
+    background: #3498db;
+    color: white;
+    font-weight: 700;
+}
+
+.back-btn {
+    display: block;
+    padding: 12px 15px;
+    background: #c0392b;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 5px;
+    margin-top: auto;
+    transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #e74c3c;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 220px;
+    padding: 40px 30px;
+    min-height: 100vh;
+    background: #ecf0f1;
+}
+
+/* Profile container */
+.profile-container {
+    max-width: 900px;
+    background: white;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Profile header */
+.profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.profile-avatar {
+    width: 70px;
+    height: 70px;
+    background: #2980b9;
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-right: 20px;
+    user-select: none;
+}
+
+/* Messages */
+.success-message,
+.error-message {
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    user-select: none;
+}
+
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1.5px solid #c3e6cb;
+}
+
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1.5px solid #f5c6cb;
+}
+
+/* Form grid */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px 30px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    user-select: none;
+}
+
+.required {
+    color: #c0392b;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select,
+textarea {
+    padding: 10px 12px;
+    border: 1.5px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: border-color 0.3s ease;
+    font-family: inherit;
+    resize: vertical;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #2980b9;
+}
+
+/* Textarea height */
+textarea {
+    min-height: 80px;
+}
+
+/* Button */
+.update-btn {
+    margin-top: 30px;
+    padding: 14px 40px;
+    background-color: #2980b9;
+    color: white;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    user-select: none;
+}
+
+.update-btn:hover {
+    background-color: #3498db;
+}

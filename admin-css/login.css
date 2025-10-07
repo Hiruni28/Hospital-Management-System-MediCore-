@@ -1,0 +1,309 @@
+:root {
+  /* Primary & Accent Colors */
+  --primary-color: #4f46e5;          /* Deep Indigo */
+  --primary-color-light: #818cf8;    /* Soft Indigo for highlights */
+  --primary-color-dark: #3730a3;     /* Dark Indigo for hover/borders */
+  --accent-color: #22c55e;           /* Bright Green accent */
+  --accent-color-dark: #16a34a;      /* Darker green for hover */
+  
+  /* Background Colors */
+  --background-dark: #111827;        /* Dark base background */
+  --background-card: #4a5c5c;        /* Card/Panel background */
+  --background-light: #f9fafb;       /* Light area (for contrast if needed) */
+  --background-overlay: rgba(198, 241, 248, 0.705); /* Overlay for dimming */
+  
+  /* Text Colors */
+  --text-primary: #f9fafb;           /* Light text on dark background */
+  --text-secondary: #cbd5e1;         /* Soft secondary text */
+  --text-muted: #94a3b8;             /* Disabled/muted text */
+  
+  /* Borders & Shadows */
+  --border-color: #374151;           /* Dark gray border */
+  --border-focus: #6366f1;           /* Indigo focus */
+  --shadow-light: rgba(255, 255, 255, 0.05);   /* Soft light shadow */
+  --shadow-medium: rgba(0, 0, 0, 0.3);         /* Medium shadow for depth */
+  
+  /* Interactive Colors */
+  --button-hover: #4338ca;           /* Indigo hover for buttons */
+  
+  /* Status Colors */
+  --success-color: #22c55e;          /* Success green */
+  --error-color: #ef4444;            /* Error red */
+  --warning-color: #f59e0b;          /* Warning amber */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-image: url('../images/hospital.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Background overlay for better contrast */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--background-overlay);
+  backdrop-filter: blur(2px);
+  z-index: 1;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  background-color: var(--background-light);
+  border-radius: 16px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  padding: 0;
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  overflow: hidden;
+  min-height: 500px;
+}
+
+.left {
+  width: 50%;
+  padding: 48px 40px;
+  background: linear-gradient(135deg, var(--background-dark) 0%, var(--secondary-color) 100%);
+  color: var(--text-light);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+/* Subtle pattern overlay for left side */
+.left::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
+  background-size: 20px 20px;
+  pointer-events: none;
+}
+
+.right {
+  width: 50%;
+  background-image: url('../images/icon.jpeg');
+  background-size: cover;
+  background-position: center;
+  color: var(--text-light);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: center;
+  position: relative;
+}
+
+/* Improved overlay for better text readability */
+.right::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 100%);
+  pointer-events: none;
+}
+
+.right button {
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+  padding: 14px 24px;
+  background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-color-dark) 100%);
+  color: var(--text-light);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.right button a {
+  color: var(--text-light);
+  text-decoration: none;
+}
+
+.right button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px -3px rgba(16, 185, 129, 0.3);
+  background: linear-gradient(135deg, var(--accent-color-dark) 0%, var(--accent-color) 100%);
+}
+
+h1 {
+  margin: 0 0 32px 0;
+  text-align: center;
+  font-size: 2.25rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-color-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  z-index: 1;
+}
+
+.social-login {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.social-login button {
+  flex: 1;
+  background-color: var(--background-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.social-login button:hover {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px var(--shadow-light);
+}
+
+/* Form Inputs */
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  padding: 14px 16px;
+  margin: 8px 0;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--background-card);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  position: relative;
+  z-index: 1;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  background-color: var(--background-light);
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder,
+input[type="email"]::placeholder {
+  color: var(--text-muted);
+}
+
+.btn-primary {
+  width: 100%;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-color-dark) 100%);
+  color: var(--text-light);
+  padding: 14px 24px;
+  margin: 16px 0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px -1px var(--shadow-light);
+  position: relative;
+  z-index: 1;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px -3px var(--shadow-light);
+  background: linear-gradient(135deg, var(--button-hover) 0%, var(--primary-color) 100%);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  position: relative;
+  z-index: 1;
+}
+
+a:hover {
+  color: var(--primary-color-dark);
+  text-decoration: underline;
+}
+
+/* Enhanced Popup Styles */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  padding: 24px 32px;
+  border-radius: 12px;
+  color: var(--text-light);
+  background-color: var(--secondary-color);
+  display: none;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  font-weight: 500;
+  z-index: 1000;
+  min-width: 300px;
+  text-align: center;
+}
+
+.popup.show {
+  display: block;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.popup.success {
+  background: linear-gradient(135deg, var(--success-color) 0%, #059669 100%);
+}
+
+.popup.error {
+  background: linear-gradient(135deg, var(--error-color) 0%, #dc2626 100%);
+}
+
+.popup.warning {
+  background: linear-gradient(135deg, var(--warning-color) 0%, #d97706 100%);
+}
